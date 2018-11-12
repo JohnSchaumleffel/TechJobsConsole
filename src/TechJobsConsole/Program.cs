@@ -118,8 +118,18 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("\n*****");
-            Console.WriteLine("*****");
+            if (someJobs.Count == 0)
+            {
+                Console.WriteLine("Nothing found try your search again.");
+                Console.ReadLine();
+            }
+            foreach (Dictionary<string, string> kvp in someJobs)
+            {
+                Console.WriteLine("\n*****");
+                foreach(KeyValuePair<string, string> x in kvp)
+                    Console.WriteLine(x.Key +" : " +x.Value);
+                Console.WriteLine("*****");
+            }
         }
     }
 }
